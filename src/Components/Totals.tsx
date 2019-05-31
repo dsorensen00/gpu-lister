@@ -23,7 +23,7 @@ export default ()=>{
 
 
     return(
-        <div className="header">
+        <div className="row">
             <div id="totalCardsContainer" className="container">
                 <h1>{totalCards}</h1>
                 <p><br/>Total Cards</p>

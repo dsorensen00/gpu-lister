@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 export default ()=>{
-    
-    let [cardList, setCardList] = useState()
+    let initial:any = []
+    const [cardList, setCardList] = useState(initial)
 
     const onLoad = async ()=>{
         await fetch('https://api.salad.io/core/master/get-gpu-whitelist')
@@ -24,10 +24,23 @@ export default ()=>{
     }, [])
 
 
+
+
     return(
         <>
+            <form className="row">
+                <div>     
+                    <label><input type="radio" name="sorting" value="byEligible"/> Sort by Eligible</label>
+                </div>
+                <div> 
+                    <label><input type="radio" name="sorting" value="byEarn"/> Sort by Highest Earning</label>
+                </div>
+                <div>    
+                    <label><input type="radio" name="sorting" value="byName"/> Sort by Name</label>
+                </div>
+            </form>
 
-            <div id="cardList">
+            <div>
                 {cardList.map((element:any, index:any)=>{
                     
                     const eligibility=(eligibility:any)=>{
@@ -39,12 +52,13 @@ export default ()=>{
                     }
                     
                     return(
-                        <div key={index} className="container-row">
-                            <div>
-                                <p>Earning: {element.earningsPerMinute}</p>
-                                <p>{eligibility(element.isEligible)}</p>
+                        <div key={index} className="container-list">
+                            <div className="row">
+                                <p className="">Earning: {element.earningsPerMinute}</p>
+                                <p className="">{eligibility(element.isEligible)}</p>
+                                <p className="">ID: {element.gpuId}</p>
                             </div>
-                            <h1>{element.gpuName}</h1>
+                            <h1 className="row">{element.gpuName}</h1>
                         </div>
                     )
                 })}

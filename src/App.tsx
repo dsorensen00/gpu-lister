@@ -8,6 +8,9 @@ const App: React.FC = () => {
     <>
       <Totals />
       <List />
+
+      <script src="jplist/jplist.min.js"></script>
+      <script>jplist.init();</script>
     </>
   );
 }
