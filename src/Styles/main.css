@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container{
+    padding-top:5vh;
+    padding-bottom:5vh;
+    padding-right:10vw;
+    padding-left:10vw;
+    background: purple;
+    text-align: center;
+    margin: 10px;
+}
