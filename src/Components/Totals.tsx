@@ -12,7 +12,7 @@ export default ()=>{
         .then((data) =>{ 
             setTotalCards(data.gpuList.length);
             setEligible(data.gpuList.filter((eligible:any) => eligible.isEligible === 1).length);
-            setMoneyMaker(data.gpuList.filter((moneyMkr:any) => moneyMkr.earningsPerMinute >= 0.023).length)
+            setMoneyMaker(data.gpuList.filter((moneyMkr:any) => moneyMkr.earningsPerMinute >= 0.00038333333).length)
         })
     }
 
